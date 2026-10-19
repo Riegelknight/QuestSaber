@@ -215,6 +215,14 @@ namespace QuestSaber.EditorTools
                 if (m.Contains("com.oculus.permission.BOUNDARY_VISIBILITY"))
                     problems.Add("AndroidManifest.xml: com.oculus.permission.BOUNDARY_VISIBILITY was added " +
                                  "(guardian visibility is controlled in code).");
+
+                // Boundaryless is what lets the game run without a drawn play area and
+                // without the "moved too far away" popup. Losing this line silently would
+                // turn the game back into a boundary-limited app.
+                if (!m.Contains("com.oculus.feature.BOUNDARYLESS_APP"))
+                    problems.Add("AndroidManifest.xml: com.oculus.feature.BOUNDARYLESS_APP is missing - " +
+                                 "Horizon OS would demand a play area and show the boundary again.");
+                else ok.Add("boundaryless app");
             }
 
             // ---- Assets/XR/Settings/OpenXRPackageSettings.asset ----------------------------

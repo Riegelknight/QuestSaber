@@ -10,10 +10,10 @@ https://youtu.be/XaOJp0y6dqE
 
 ## Installation
 
-*Note: No developer mode, no online connection, no SideQuest needed.*
+*Note: No developer mode, no online connection, no SideQuest and no boundary/play-area setup needed.*
 
 1. Download the APK in the headset's browser, or copy it into the headset's **Download** folder: <https://github.com/Riegelknight/QuestSaber/releases/latest>
-2. In **Download** tap the three dots (...) next to `QuestSaber-apk1.apk` → *Open with* → **Package installer**.
+2. In **Download** tap the three dots (...) next to `QuestSaber-apk2.apk` → *Open with* → **Package installer**.
 3. The game will now appear in your library under **Unknown Sources**.
 
 Demo song: "Death to Disco" by Freeek
@@ -64,7 +64,7 @@ needed for installing or transferring songs.
 
 1. **Unity 6000.6.5f1** (Unity 6.6) with Android Build Support – Unity's **Mixed Reality** template (`com.unity.template.mixedreality`) — <https://unity.com/releases/editor/archive>
 2. `Packages/manifest.json` → Check the **Meta XR SDK** version (`com.meta.xr.sdk.all`, `207.0.0`)
-3. Bundle `apk1` (code `3`), package id `com.questsaber.questsaber`, minSdk/targetSdk 34, ARM64, IL2CPP
+3. Bundle `apk2` (code `4`), package id `com.questsaber.questsaber`, minSdk/targetSdk 34, ARM64, IL2CPP
 4. Build: menu **`QuestSaber > Build Android APK`** → `Builds\QuestSaber-<version>.apk` (older APKs move to `Builds\archive\`). The build aborts before compiling if an environment scene is missing from the build settings, or if Meta XR's *Project Validation* has silently rewritten the critical player settings — **never press "Fix All" / "Apply All" there**.
 
 ### Code Notes
@@ -74,6 +74,12 @@ needed for installing or transferring songs.
   rate is written through `OVRPlugin.systemDisplayFrequency` only when it really differs (no
   permanent writes, which would make the compositor reconfigure on every focus change) and rounded
   to the native hardware rates (72/80/90/120 Hz). `QualitySettings.vSyncCount` is `0`.
+* **Boundary / play area:** the app is a Meta **boundaryless app**
+  (`com.oculus.feature.BOUNDARYLESS_APP` in the manifest). Horizon OS disables the safety boundary
+  for the whole experience: no play area to draw before starting, no "you moved too far away"
+  warning while running around, no grid. In addition the code requests
+  `OVRPlugin.RequestBoundaryVisibility(Suppressed)` (only while passthrough is active, with a
+  backoff) - that still applies over PC/Link, where the manifest has no effect.
 * **Anti-telemetry:** blocks automatic uploads and LAN injection by the Meta build tools by disabling
   `DevAgentSettings.asset` and `ImmersiveDebuggerSettings.asset` in code, and removes the trackers
   during the manifest merge:

@@ -39,6 +39,14 @@
     <meta-data android:name="com.oculus.supportedDevices" android:value="quest|quest2|questpro|quest3|quest3s|stanley" tools:replace="android:value" />
   </application>
   <uses-feature android:name="android.hardware.vr.headtracking" android:version="1" android:required="true" />
+  <!-- Boundaryless (Meta's documented MR mode: "Boundaryless Mode for Mixed Reality in
+       Unity"): Horizon OS disables the safety boundary for the WHOLE experience. No play
+       area has to be drawn before play and no "you moved too far away" popup interrupts
+       running around in passthrough - which is the point of this game (inline skating /
+       large outdoor areas; a normal boundary is limited to about 10 x 10 m).
+       Works in a sideloaded standalone APK (over PC/Link the manifest has no effect),
+       6DoF only, and is mutually exclusive with contextual boundaryless. -->
+  <uses-feature android:name="com.oculus.feature.BOUNDARYLESS_APP" android:required="true" />
   <horizonos:uses-horizonos-sdk horizonos:minSdkVersion="60" horizonos:targetSdkVersion="207" />
   <!-- Offline build: the Meta voice/AI runtime libraries declare RECORD_AUDIO for their
        cloud speech feature, which this game never uses. Remove it from the merge. -->
