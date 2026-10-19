@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:installLocation="auto" xmlns:horizonos="http://schemas.horizonos/sdk">
+  <application android:label="@string/app_name" android:icon="@mipmap/app_icon" android:allowBackup="false">
+    <!-- Entry point is UnityPlayerActivity (NOT ...GameActivity). Reason: Unity 6's
+         GameActivity entry point cannot show the Android/Quest system keyboard at all - the
+         TouchScreenKeyboard object reports status=Visible forever while the OS never draws the
+         overlay (Unity issue "TouchScreenKeyboard.Status stuck on Visible with GameActivity",
+         reported for Quest 2/3 on Unity 6.5; helper text input never appeared either). With the
+         classic Activity entry point the Horizon OS keyboard overlay works as documented.
+         Must stay in sync with ProjectSettings androidApplicationEntry = Activity and with
+         BuildAndroid.PerformBuild (which enforces it).
+         Theme: the classic Unity activity theme, NOT Theme.AppCompat - the AppCompat resources are
+         only pulled in with the GameActivity entry point, so keeping them here makes AAPT fail
+         with "resource style/Theme.AppCompat.DayNight.NoActionBar not found". Meta's
+         OVRManifestPreprocessor converts this theme to AppCompat automatically if the entry point
+         is ever switched back to GameActivity. -->
+    <activity android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" android:configChanges="locale|fontScale|keyboard|keyboardHidden|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:launchMode="singleTask" android:name="com.unity3d.player.UnityPlayerActivity" android:excludeFromRecents="true" android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+        <category android:name="com.oculus.intent.category.VR" />
+      </intent-filter>
+      <meta-data android:name="com.oculus.vr.focusaware" android:value="true" />
+    </activity>
+    <!-- Song folder chooser: our own tiny activity that shows the Android system folder
+         picker (Storage Access Framework, ACTION_OPEN_DOCUMENT_TREE) and remembers the
+         chosen folder. An own activity is needed because Unity's player activity cannot
+         receive the result of the system picker. It gives access to folders like
+         Download WITHOUT any storage permission and WITHOUT developer mode, and is fully
+         offline (see SafSongFolder.cs / SafPickActivity.java). -->
+    <activity android:name="com.questsaber.SafPickActivity" android:exported="false" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:configChanges="locale|fontScale|keyboard|keyboardHidden|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" />
+    <meta-data android:name="unityplayer.SkipPermissionsDialog" android:value="false" />
+    <meta-data android:name="com.oculus.ossplash.background" android:value="black" />
+    <!-- Offline build: the Meta runtime LIBRARY declares the telemetry project GUID and
+         injects it during the manifest merge (removing our own copy was not enough).
+         tools:node="remove" deletes it from the merged manifest so the Meta runtime
+         cannot attribute or upload app telemetry. -->
+    <meta-data android:name="com.oculus.telemetry.project_guid" tools:node="remove" />
+    <meta-data android:name="com.oculus.supportedDevices" android:value="quest|quest2|questpro|quest3|quest3s|stanley" tools:replace="android:value" />
+  </application>
+  <uses-feature android:name="android.hardware.vr.headtracking" android:version="1" android:required="true" />
+  <horizonos:uses-horizonos-sdk horizonos:minSdkVersion="60" horizonos:targetSdkVersion="207" />
+  <!-- Offline build: the Meta voice/AI runtime libraries declare RECORD_AUDIO for their
+       cloud speech feature, which this game never uses. Remove it from the merge. -->
+  <uses-permission android:name="android.permission.RECORD_AUDIO" tools:node="remove" />
+  <!-- "All files access" (MANAGE_EXTERNAL_STORAGE). This replaces the Storage Access
+       Framework chooser (which this device never shows) with direct access to the shared
+       Download folder: the game reads the songs from there, creates Download/QuestSaberSongs
+       itself and writes spiel_debug_log.txt straight into Download. Granted ONCE by the
+       player on a single system settings page (never a repeating dialog); without it the
+       game still works using the permission-free Android/media inbox. -->
+  <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+  <!-- Unity's own storage permission requests are useless here (the game only uses the
+       permission above / the media inbox) and they are what produced the permission
+       popup at startup. -->
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="remove" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" tools:node="remove" />
+</manifest>

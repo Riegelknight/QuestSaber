@@ -1,0 +1,93 @@
+# ---------------------------------------------------------------------------
+# QuestSaber - .gitignore
+# Versioniert werden nur Quelltext, Assets und Projekt-Settings.
+# Alles, was Unity generiert oder was lokal auf dem Entwickler-PC entsteht
+# (Caches, Builds, APKs, Logs, Spieler-Logs), bleibt draussen.
+# ---------------------------------------------------------------------------
+
+# Unity-generierte Ordner -----------------------------------------------------
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]serSettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+/.utmp/
+
+# Lokale Arbeitsordner (kein Bestandteil des Repos) ---------------------------
+/Game-Logs/
+/Review/
+# Entwickler-Notizen bleiben lokal (nicht Teil der Veroeffentlichung)
+/PROJECT_NOTES.md
+
+# Automatisch erzeugte Projekt-/Solution-Dateien ------------------------------
+/[Aa]ssets/[Aa]ssetStoreTools*
+/[Ee]xportedObj/
+/[Cc]onsulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity3D-generierte .meta zu ignorierten Dateien -----------------------------
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Absturz-/Diagnosedateien -----------------------------------------------------
+sysinfo.txt
+crashlytics-build.properties
+
+# Build-Artefakte -------------------------------------------------------------
+*.apk
+*.aab
+*.obb
+*.unitypackage
+*.app
+
+# Signatur/Secrets - darf NIE ins Repo ---------------------------------------
+*.keystore
+*.jks
+*.p12
+*.pfx
+/keystore/
+
+# Addressables -----------------------------------------------------------------
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# Automatisch generierte Android-Assets ---------------------------------------
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Vom Meta XR SDK bei jedem Import neu erzeugtes Default-Asset ----------------
+# (in Assets/Resources/ abgelegt, enthaelt nur SDK-Standardwerte)
+/[Aa]ssets/[Rr]esources/OVROverlayCanvasSettings.asset
+/[Aa]ssets/[Rr]esources/OVROverlayCanvasSettings.asset.meta
+
+# Betriebssystem ---------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs -------------------------------------------------------------------------
+.idea/
+.vs/
+.vscode/
+*.swp
+*.swo
+*.bak
+*.orig
+*.rej

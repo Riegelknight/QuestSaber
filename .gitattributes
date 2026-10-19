@@ -1,0 +1,31 @@
+# ---------------------------------------------------------------------------
+# QuestSaber - .gitattributes
+# Binärformate sollen nie als Text behandelt (diff/merge/umbrechen) werden.
+# ---------------------------------------------------------------------------
+
+# Modelle / Texturen / Audio
+*.fbx binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.tga binary
+*.tif binary
+*.exr binary
+*.hdr binary
+*.psd binary
+*.wav binary
+*.mp3 binary
+*.ogg binary
+*.ttf binary
+*.otf binary
+
+# Bibliotheken / Pakete / Builds
+*.dll binary
+*.so binary
+*.aar binary
+*.jar binary
+*.apk binary
+*.aab binary
+*.obb binary
+*.unitypackage binary
