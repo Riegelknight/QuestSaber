@@ -30,19 +30,15 @@ Wow, that's it?! Yes, songs are automatically moved to `storage/QuestSaberSongs`
 
 <img width="1920" height="1080" alt="lied auswahl" src="https://github.com/user-attachments/assets/9cd20cd8-0f4f-4382-865e-ecdee77781a8" />
 
-### PC Connection (if preferred) & Offline Readiness
+### PC Connection & Offline Readiness
 
-Follow these steps to transfer data between your PC and headset without enabling developer mode or using an app store.
-
-#### Prerequisites
-* Install **Cx File Explorer** once on your device.
+To transfer data between your PC and the headset without enabling developer mode or using SideQuest install **Cx File Explorer** once on your device.
 
 #### Installation Steps
 1. Open <https://cxfileexplorer.com> in the headset's browser and download the APK file.
 2. Navigate to **Downloads** (via the three-dots menu), open the package installer, and tap **Install**.
 
 Once installed, you can connect your Quest to your PC at any time. **No further actions are required.**
-
 
 ## Controller Mapping
 
