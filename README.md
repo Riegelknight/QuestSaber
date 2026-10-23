@@ -14,7 +14,7 @@ https://youtu.be/XaOJp0y6dqE
 
 1. Download the APK in the headset's browser, or copy it into the headset's **Download** folder: <https://github.com/Riegelknight/QuestSaber/releases/latest>
 2. In **Download** tap the three dots (...) next to `QuestSaber-apk2.apk` → *Open with* → **Package installer**.
-3. The game will now appear in your library under **Unknown Sources**.
+3. The game will now appear in your library → menu → under **Unknown Sources**.
 
 Demo song: "Death to Disco" by Freeek
 
@@ -30,18 +30,19 @@ Wow, that's it?! Yes, songs are automatically moved to `storage/QuestSaberSongs`
 
 <img width="1920" height="1080" alt="lied auswahl" src="https://github.com/user-attachments/assets/9cd20cd8-0f4f-4382-865e-ecdee77781a8" />
 
-### Keeping the headset offline (tip)
+### PC Connection (if preferred) & Offline Readiness
 
-To move APKs, songs and logs between PC and headset without developer mode and without a store,
-install the **CX File Explorer** once:
+Follow these steps to transfer data between your PC and headset without enabling developer mode or using an app store.
 
-1. Open <https://cxfileexplorer.com/> in the headset's browser and download the APK.
-2. In **Downloads** (via the menu with the small dots), open the package installer and tap
-   **Install**.
-3. Then connect to the PC – files can be copied in both directions.
+#### Prerequisites
+* Install **Cx File Explorer** once on your device.
 
-The headset may stay offline the whole time; no online requirement, account login or SideQuest is
-needed for installing or transferring songs.
+#### Installation Steps
+1. Open <https://cxfileexplorer.com> in the headset's browser and download the APK file.
+2. Navigate to **Downloads** (via the three-dots menu), open the package installer, and tap **Install**.
+
+Once installed, you can connect your Quest to your PC at any time. **No further actions are required.**
+
 
 ## Controller Mapping
 
