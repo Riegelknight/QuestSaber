@@ -32,7 +32,7 @@ Wow, mehr nicht?! Ja – Lieder werden automatisch nach `storage/QuestSaberSongs
 
 ### PC-Verbindung & Offline-Absicherung
 
-Um Daten zwischen Ihrem PC und dem Headset zu übertragen, ohne den Entwicklermodus zu aktivieren oder einen App-Store zu nutzen, Installieren Sie den **Cx File Explorer** einmalig auf Ihrem Gerät.
+Um Daten zwischen Ihrem PC und dem Headset zu übertragen, ohne den Entwicklermodus zu aktivieren oder SideQuest zu nutzen, Installieren Sie den **Cx File Explorer** einmalig auf Ihrem Gerät.
 
 #### Installationsschritte
 1. Öffnen Sie <https://cxfileexplorer.com> im Browser des Headsets und laden Sie die APK-Datei herunter.
