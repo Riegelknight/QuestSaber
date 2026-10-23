@@ -14,7 +14,7 @@ https://youtu.be/XaOJp0y6dqE
 
 1. Die APK im Browser der Brille herunterladen oder in den **Download**-Ordner der Brille kopieren: <https://github.com/Riegelknight/QuestSaber/releases/latest>
 2. Im **Download**-Ordner auf die drei Punkte (...) neben `QuestSaber-apk2.apk` tippen → *Öffnen mit* → **Paketinstallation**.
-3. Das Spiel erscheint nun in deiner Bibliothek unter **Unbekannte Quellen**.
+3. Das Spiel erscheint nun in deiner Bibliothek → Menü → unter **Unbekannte Quellen**.
 
 Demo-Lied: „Death to Disco“ von Freeek
 
@@ -30,18 +30,16 @@ Wow, mehr nicht?! Ja – Lieder werden automatisch nach `storage/QuestSaberSongs
 
 <img width="1920" height="1080" alt="lied auswahl" src="https://github.com/user-attachments/assets/9cd20cd8-0f4f-4382-865e-ecdee77781a8" />
 
-### Quest dauerhaft offline nutzen (Tipp)
+### PC-Verbindung & Offline-Absicherung
 
-Damit du APK, Songs und Logs bequem zwischen PC und Brille hin- und herschieben kannst, ohne
-Entwicklermodus und ohne Store, lohnt sich einmalig der **CX File Explorer**:
+Um Daten zwischen Ihrem PC und dem Headset zu übertragen, ohne den Entwicklermodus zu aktivieren oder einen App-Store zu nutzen, Installieren Sie den **Cx File Explorer** einmalig auf Ihrem Gerät.
 
-1. Im Browser der Brille <https://cxfileexplorer.com/> öffnen und die APK herunterladen.
-2. In **Downloads** (über das Menü mit den kleinen Punkten) die Paketinstallation öffnen und auf
-   **Installieren** tippen.
-3. Danach mit dem PC verbinden – Dateien lassen sich in beide Richtungen kopieren.
+#### Installationsschritte
+1. Öffnen Sie <https://cxfileexplorer.com> im Browser des Headsets und laden Sie die APK-Datei herunter.
+2. Navigieren Sie zu den **Downloads** (über das Drei-Punkte-Menü), öffnen Sie den Paket-Installer und tippen Sie auf **Installieren**.
 
-Die Brille darf dabei offline bleiben; Online-Zwang, Konto-Anmeldung oder SideQuest braucht es
-für Installation und Song-Transfer nicht.
+Nach der Installation können Sie Ihre Quest jederzeit mit dem PC verbinden. **Es sind keine weiteren Schritte erforderlich.**
+
 
 ## Controller-Belegung
 
